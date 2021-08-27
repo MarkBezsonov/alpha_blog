@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_user, only: [:edit, :update]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
     @articles = @user.articles.paginate(page: params[:page], per_page: 5)
@@ -15,6 +15,18 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      flash[:notice] = "Your account information was updated."
+      redirect_to @user
+    else
+      render "edit"
+    end
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -26,16 +38,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-    if @user.update(user_params)
-      flash[:notice] = "Your account information was updated."
-      redirect_to @user
-    else
-      render "edit"
-    end
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    flash[:notice] = "The account and all of its associated articles have been deleted. Sorry to see you go!"
+    redirect_to articles_path
   end
 
   private
