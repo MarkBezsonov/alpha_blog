@@ -30,12 +30,12 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.paginate(page: params[:page], per_page: 5)
+    @categories = Category.paginate(page: params[:page], per_page: 10)
   end
 
   def show
     @category = Category.find(params[:id])
-    @articles = @category.articles.order("created_at DESC").paginate(page: params[:page], per_page: 5)
+    @articles = @category.articles.order("created_at DESC").paginate(page: params[:page], per_page: 10)
   end
 
   private

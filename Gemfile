@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 # Enable pagination
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+# Used for advanced search capability
+gem "ransack"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
