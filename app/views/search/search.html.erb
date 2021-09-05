@@ -4,7 +4,6 @@
   <% if @categories.empty? && @users.empty? && @articles.empty? %>
     <h3 class= "text-center mt-4" id="no_results">No results found. Try searching something else!</h3>
   <% else %>
-
     <% if @categories.count != 0 %>
       <div class="search-top search container" id="categories_search_container">
         <h3 class= "text-center mt-4">Categories (<%= @categories.count %>)</h3>
@@ -36,7 +35,6 @@
 
       </div>
     <% end %>
-
     <% if @users.count != 0 %>
       <div class="container search" id="users_search_container">
         <h3 class= "text-center mt-4">Users (<%= @users.count %>)</h3>
@@ -82,7 +80,6 @@
 
       </div>
     <% end %>
-
     <% if @articles.count != 0 %>  
       <div class="container search" id="articles_search_container">
         <h3 class= "text-center mt-4">Articles (<%= @articles.count %>)</h3>

@@ -21,8 +21,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 # Enable pagination
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
-# Used for advanced search capability
-gem "ransack"
+# Enable search
+gem 'ransack'
+# For secure_key compatibility with Heroku
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
